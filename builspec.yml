@@ -1,12 +1,20 @@
 version: 0.2
-
 phases:
-  install:
-    runtime-versions:
-      nodejs: 14
-  build:
-    commands:
-      - echo "Build completed successfully"
+install:
+commands:
+- echo Installing NGINX - echo apt-get install NGINX
+- sudo apt-get update
+- sudo apt-get install nginx -y
+build:
+commands:
+- echo Build started on date
+`
+- cp index.html /var/www/html
+post
+build:
+_
+commands:
+- echo Configuring NGINX
 artifacts:
-  files:
-    - '**/*'
+files:
+-/var/www/html/index.html
