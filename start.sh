@@ -1,3 +1,8 @@
 #!/bin/bash
-cd /home/ec2-user/app
-nohup node index.js > output.log 2>&1 &
+
+echo "Installing Apache..."
+yum install -y httpd
+systemctl enable httpd
+systemctl start httpd
+
+echo "Deployment complete."
